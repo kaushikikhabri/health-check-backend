@@ -22,6 +22,13 @@ app.get("/", (req, res) => {
   res.send("Backend running");
 });
 
+// TEMP: Kill endpoint for testing UptimeRobot alert
+app.get("/kill", (req, res) => {
+  res.send("Shutting down Node process...");
+  console.log("Node process killed via /kill endpoint!");
+  process.exit(1); // stops the server immediately
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
