@@ -24,9 +24,9 @@ app.get("/", (req, res) => {
 
 // TEMP: Kill endpoint for testing UptimeRobot alert
 app.get("/kill", (req, res) => {
-  res.send("Shutting down Node process...");
+  res.send("Shutting down Node process for testing alert...");
   console.log("Node process killed via /kill endpoint!");
-  process.exit(1); // stops the server immediately
+  setTimeout(() => process.exit(1), 300000); // 300,000 ms = 5 min
 });
 
 app.listen(port, () => {
